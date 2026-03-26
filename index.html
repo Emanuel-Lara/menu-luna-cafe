@@ -3,290 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luna Café - Menú Digital</title>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <title>Luna Café | Menú Digital</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header>
-    <img src="logo.png" alt="Luna Café" class="main-logo">
-    <p class="subtitle">Especialidad & Sabor</p>
-    <h1>Nuestro Menú</h1>
-    
-    <div class="filter-container">
-        <button class="filter-btn active" data-filter="all">Todos</button>
-        <button class="filter-btn" data-filter="desayunos">Desayunos</button>
-        <button class="filter-btn" data-filter="hamburguesas">Hamburguesas</button>
-        <button class="filter-btn" data-filter="pizzas">Pizzas</button>
-        <button class="filter-btn" data-filter="tapas">Tapas y Picoteos</button>
-        <button class="filter-btn" data-filter="postres">Postres</button>
-    </div>
-</header>
-
-<main class="menu-grid" id="menu-grid">
-    <article class="menu-item" data-category="desayunos">
-        <div class="item-icon">🥟</div>
-        <div class="item-info">
-            <div class="item-header"><h3>Empanadas</h3><span class="price">Consultar</span></div>
-            <p>Rellenos variados del día.</p>
+    <header>
+        <div class="header-content">
+            <div class="logo-redondo">
+                <img src="logo.png" alt="Luna Café Logo"> 
+            </div>
+            <h1>LUNA CAFÉ</h1>
+            <p>Punto Fijo, Falcón</p>
         </div>
-    </article>
+    </header>
 
-    <article class="menu-item" data-category="desayunos">
-        <div class="item-icon">🥤</div>
-        <div class="item-info">
-            <div class="item-header"><h3>Combo 2 Empanadas + Bebida</h3><span class="price">Consultar</span></div>
-            <p>El desayuno clásico de la casa.</p>
-        </div>
-    </article>
+    <nav class="barra-filtros">
+        <button class="filtro-btn activo" onclick="filtrar('todos', event)">✨ Todos</button>
+        <button class="filtro-btn" onclick="filtrar('cafes', event)">☕ Cafés</button>
+        <button class="filtro-btn" onclick="filtrar('desayunos', event)">🍳 Desayunos</button>
+        <button class="filtro-btn" onclick="filtrar('almuerzos', event)">🍝 Almuerzos</button>
+        <button class="filtro-btn" onclick="filtrar('postres', event)">🍰 Postres</button>
+        <button class="filtro-btn" onclick="filtrar('bebidas', event)">🥤 Bebidas</button>
+    </nav>
 
-    <article class="menu-item" data-category="desayunos">
-        <div class="item-icon">🥪</div>
-        <div class="item-info">
-            <div class="item-header"><h3>Sandwich Cuadrado</h3><span class="price">Consultar</span></div>
-            <p>Pan tostado con ingredientes frescos.</p>
-        </div>
-    </article>
+    <main id="menu-container">
+        <section class="categoria-menu cafes">
+            <h2 class="titulo-categoria">Nuestra Cafetería</h2>
+            <div class="item-menu">
+                <div class="info"><h3>Café Bombón</h3><p class="precio">$4.00</p></div>
+                <button class="btn-wa" onclick="pedirDirecto('Café Bombón', '4.00')">Pedir</button>
+            </div>
+            <div class="item-menu">
+                <div class="info"><h3>Capuchino</h3><p class="precio">$3.50</p></div>
+                <button class="btn-wa" onclick="pedirDirecto('Capuchino', '3.50')">Pedir</button>
+            </div>
+            <div class="item-menu">
+                <div class="info"><h3>Mocaccino</h3><p class="precio">$4.00</p></div>
+                <button class="btn-wa" onclick="pedirDirecto('Mocaccino', '4.00')">Pedir</button>
+            </div>
+        </section>
 
-    <article class="menu-item" data-category="desayunos">
-        <div class="item-icon">🫓</div>
-        <div class="item-info">
-            <div class="item-header"><h3>Combo 2 Arepas</h3><span class="price">Consultar</span></div>
-            <p>Rellenas a tu gusto.</p>
-        </div>
-    </article>
+        <section class="categoria-menu desayunos">
+            <h2 class="titulo-categoria">Desayunos</h2>
+            <div class="item-menu">
+                <div class="info"><h3>Arepa Pelúa</h3><p class="precio">$5.00</p></div>
+                <button class="btn-wa" onclick="pedirDirecto('Arepa Pelúa', '5.00')">Pedir</button>
+            </div>
+            <div class="item-menu">
+                <div class="info"><h3>Empanada Operada</h3><p class="precio">$2.00</p></div>
+                <button class="btn-wa" onclick="pedirDirecto('Empanada Operada', '2.00')">Pedir</button>
+            </div>
+        </section>
 
-    <article class="menu-item" data-category="desayunos">
-        <div class="item-icon">🥐</div>
-        <div class="item-info">
-            <div class="item-header"><h3>Cachitos</h3><span class="price">Consultar</span></div>
-            <p>Tradicional relleno de jamón.</p>
-        </div>
-    </article>
+        <section class="categoria-menu almuerzos">
+            <h2 class="titulo-categoria">Almuerzos</h2>
+            <div class="item-menu">
+                <div class="info"><h3>Pasta Carbonara</h3><p class="precio">$8.50</p></div>
+                <button class="btn-wa" onclick="pedirDirecto('Pasta Carbonara', '8.50')">Pedir</button>
+            </div>
+            <div class="item-menu">
+                <div class="info"><h3>Club House Luna</h3><p class="precio">$10.00</p></div>
+                <button class="btn-wa" onclick="pedirDirecto('Club House Luna', '10.00')">Pedir</button>
+            </div>
+        </section>
 
-    <article class="menu-item" data-category="desayunos">
-        <div class="item-icon">🧀</div>
-        <div class="item-info">
-            <div class="item-header"><h3>Pan Charcutero</h3><span class="price">Consultar</span></div>
-            <p>Especialidad horneada.</p>
-        </div>
-    </article>
+        <section class="categoria-menu postres">
+            <h2 class="titulo-categoria">Postres</h2>
+            <div class="item-menu">
+                <div class="info"><h3>Quesillo Casero</h3><p class="precio">$3.00</p></div>
+                <button class="btn-wa" onclick="pedirDirecto('Quesillo Casero', '3.00')">Pedir</button>
+            </div>
+            <div class="item-menu">
+                <div class="info"><h3>Torta de Piña</h3><p class="precio">$4.00</p></div>
+                <button class="btn-wa" onclick="pedirDirecto('Torta de Piña', '4.00')">Pedir</button>
+            </div>
+        </section>
 
-    <article class="menu-item" data-category="desayunos">
-        <div class="item-icon">🥐</div>
-        <div class="item-info">
-            <div class="item-header"><h3>Combo Mini Pasteles</h3><span class="price">Consultar</span></div>
-            <p>Variedad de bocados horneados.</p>
-        </div>
-    </article>
+        <section class="categoria-menu bebidas">
+            <h2 class="titulo-categoria">Bebidas</h2>
+            <div class="item-menu">
+                <div class="info"><h3>Jugo de Naranja</h3><p class="precio">$2.50</p></div>
+                <button class="btn-wa" onclick="pedirDirecto('Jugo de Naranja', '2.50')">Pedir</button>
+            </div>
+            <div class="item-menu">
+                <div class="info"><h3>Malta Fría</h3><p class="precio">$1.50</p></div>
+                <button class="btn-wa" onclick="pedirDirecto('Malta Fría', '1.50')">Pedir</button>
+            </div>
+        </section>
+    </main>
 
-    <article class="menu-item" data-category="desayunos">
-        <div class="item-icon">🥨</div>
-        <div class="item-info">
-            <div class="item-header"><h3>Servicio de Tequeños</h3><span class="price">Consultar</span></div>
-            <p>Palitos de queso crujientes.</p>
-        </div>
-    </article>
+    <footer>
+        <p>© 2026 Luna Café - Todos los derechos reservados.</p>
+        <p><small>Punto Fijo, Estado Falcón.</small></p>
+    </footer>
 
-    <article class="menu-item" data-category="desayunos">
-        <div class="item-icon">🍳</div>
-        <div class="item-info">
-            <div class="item-header"><h3>Omelette</h3><span class="price">Consultar</span></div>
-            <p>Huevos preparados al momento.</p>
-        </div>
-    </article>
-
-<article class="menu-item" data-category="desayunos">
-        <div class="item-icon">🌙</div>
-        <div class="item-info">
-            <div class="item-header"><h3>Desayuno Luna</h3><span class="price">Consultar</span></div>
-            <p>Nuestra opción más completa.</p>
-            <span class="badge">Especial</span>
-        </div>
-    </article>
-
-    <article class="menu-item" data-category="hamburguesas">
-        <div class="item-icon">🍗</div>
-        <div class="item-info">
-            <div class="item-header"><h3>Chicken Crunch</h3><span class="price">Consultar</span></div>
-            <p>Pollo extra crujiente y vegetales frescos.</p>
-        </div>
-    </article>
-
-    <article class="menu-item" data-category="hamburguesas">
-        <div class="item-icon">🥓</div>
-        <div class="item-info">
-            <div class="item-header"><h3>Bacon Cheddar</h3><span class="price">Consultar</span></div>
-            <p>Res con tocineta y mucho queso fundido.</p>
-        </div>
-    </article>
-
-    <article class="menu-item" data-category="hamburguesas">
-        <div class="item-icon">🧅</div>
-        <div class="item-info">
-            <div class="item-header"><h3>Onion Crunch</h3><span class="price">Consultar</span></div>
-            <p>Con aros de cebolla caramelizados y crujientes.</p>
-        </div>
-    </article>
-
-    <article class="menu-item" data-category="hamburguesas">
-        <div class="item-icon">🍔</div>
-        <div class="item-info">
-            <div class="item-header"><h3>Sencilla</h3><span class="price">Consultar</span></div>
-            <p>El sabor clásico de Luna Café.</p>
-        </div>
-    </article>
-
-    <article class="menu-item" data-category="pizzas">
-        <div class="item-icon">🍕</div>
-        <div class="item-info">
-            <div class="item-header"><h3>Tradicional</h3><span class="price">Consultar</span></div>
-            <p>Salsa de la casa y mozzarella.</p>
-        </div>
-    </article>
-
-    <article class="menu-item" data-category="pizzas">
-        <div class="item-icon">🍕</div>
-        <div class="item-info">
-            <div class="item-header"><h3>Peperonni</h3><span class="price">Consultar</span></div>
-            <p>Cargada de rodajas de peperonni premium.</p>
-        </div>
-    </article>
-
-    <article class="menu-item" data-category="pizzas">
-        <div class="item-icon">🍕</div>
-        <div class="item-info">
-            <div class="item-header"><h3>Primavera</h3><span class="price">Consultar</span></div>
-            <p>Vegetales frescos y maíz.</p>
-        </div>
-    </article>
-
-    <article class="menu-item" data-category="pizzas">
-        <div class="item-icon">🍕</div>
-        <div class="item-info">
-            <div class="item-header"><h3>Vegetariana</h3><span class="price">Consultar</span></div>
-            <p>Opción saludable y deliciosa.</p>
-        </div>
-    </article>
-
-    <article class="menu-item" data-category="tapas">
-        <div class="item-icon">🐟</div>
-        <div class="item-info">
-            <div class="item-header"><h3>Ceviche de Pescado</h3><span class="price">Consultar</span></div>
-            <p>Marinado cítrico y fresco.</p>
-        </div>
-    </article>
-
-    <article class="menu-item" data-category="tapas">
-        <div class="item-icon">🍤</div>
-        <div class="item-info">
-            <div class="item-header"><h3>Camarones al Ajillo</h3><span class="price">Consultar</span></div>
-            <p>Salteados con ajo y aceite de oliva.</p>
-        </div>
-    </article>
-
-    <article class="menu-item" data-category="tapas">
-        <div class="item-icon">🔥</div>
-        <div class="item-info">
-            <div class="item-header"><h3>Alas BBQ</h3><span class="price">Consultar</span></div>
-            <p>Bañadas en salsa dulce y ahumada.</p>
-        </div>
-    </article>
-
-<article class="menu-item" data-category="tapas">
-        <div class="item-icon">🥩</div>
-        <div class="item-info">
-            <div class="item-header"><h3>Gordon Blue</h3><span class="price">Consultar</span></div>
-            <p>Pollo relleno empanizado.</p>
-        </div>
-    </article>
-
-    <article class="menu-item" data-category="tapas">
-        <div class="item-icon">🍗</div>
-        <div class="item-info">
-            <div class="item-header"><h3>Tender con Papas Fritas</h3><span class="price">Consultar</span></div>
-            <p>Tiras de pollo con papas crujientes.</p>
-        </div>
-    </article>
-
-    <article class="menu-item" data-category="tapas">
-        <div class="item-icon">🍟</div>
-        <div class="item-info">
-            <div class="item-header"><h3>Servicio de Papas Fritas</h3><span class="price">Consultar</span></div>
-            <p>Porción clásica para compartir.</p>
-        </div>
-    </article>
-
-    <article class="menu-item" data-category="postres">
-        <div class="item-icon">🥕</div>
-        <div class="item-info">
-            <div class="item-header"><h3>Torta Zanahoria</h3><span class="price">Consultar</span></div>
-            <p>Húmeda y con especias.</p>
-        </div>
-    </article>
-
-    <article class="menu-item" data-category="postres">
-        <div class="item-icon">🍊</div>
-        <div class="item-info">
-            <div class="item-header"><h3>Torta Naranja</h3><span class="price">Consultar</span></div>
-            <p>Sabor cítrico y natural.</p>
-        </div>
-    </article>
-
-    <article class="menu-item" data-category="postres">
-        <div class="item-icon">🍫</div>
-        <div class="item-info">
-            <div class="item-header"><h3>Torta Chocolate</h3><span class="price">Consultar</span></div>
-            <p>Doble capa de chocolate intenso.</p>
-        </div>
-    </article>
-
-    <article class="menu-item" data-category="postres">
-        <div class="item-icon">🍋</div>
-        <div class="item-info">
-            <div class="item-header"><h3>Ponqué de Limón</h3><span class="price">Consultar</span></div>
-            <p>Ligero y refrescante.</p>
-        </div>
-    </article>
-
-    <article class="menu-item" data-category="postres">
-        <div class="item-icon">🍩</div>
-        <div class="item-info">
-            <div class="item-header"><h3>Brownies</h3><span class="price">Consultar</span></div>
-            <p>Con centro suave de chocolate.</p>
-        </div>
-    </article>
-
-    <article class="menu-item" data-category="postres">
-        <div class="item-icon">🥧</div>
-        <div class="item-info">
-            <div class="item-header"><h3>Pie de Limón</h3><span class="price">Consultar</span></div>
-            <p>Base crocante y merengue suizo.</p>
-        </div>
-    </article>
-
-    <article class="menu-item" data-category="postres">
-        <div class="item-icon">🍪</div>
-        <div class="item-info">
-            <div class="item-header"><h3>Galletas</h3><span class="price">Consultar</span></div>
-            <p>Horneadas diariamente.</p>
-        </div>
-    </article>
-
-    <article class="menu-item" data-category="postres">
-        <div class="item-icon">🍮</div>
-        <div class="item-info">
-            <div class="item-header"><h3>Quesillo</h3><span class="price">Consultar</span></div>
-            <p>El postre venezolano por excelencia.</p>
-        </div>
-    </article>
-</main>
-
-<footer class="main-footer">
-    <p>Luna Café 🌙 - Contacto: 0422-1234700</p>
-</footer>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
